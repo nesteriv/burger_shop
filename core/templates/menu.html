@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Menu</h1>
+
+
+{% regroup subcategorys by category as category_list %}
+{% regroup products by product_subcategory as subcategory_list %}
+
+<p>{{category_list.grouper}}</p>
+
+
+<ul>
+{% for category in category_list %}
+    <li><h4>{{ category.grouper }}</h4> </li>
+        {% for cat_item in category.list %}
+    <li><h5>{{cat_item}}</h5></li>
+
+
+
+        {% endfor %}
+{% endfor %}
+
+
+</ul>
+<hr>
+
+{% for subcategory in subcategory_list %}
+    <li><h4>{{ subcategory.grouper }}</h4> </li>
+        {% for item in subcategory.list %}
+        <li>{{item}}</li>
+{%endfor%}
+        {% endfor %}
+
+
+
+</body>
+</html>
