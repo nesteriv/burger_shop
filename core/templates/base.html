@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      {% load static %}
+
+  <link>
+    <meta charset="utf-8">
+    <title>{% block title %}CHAT{% endblock %}</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+
+
+  </head>
+  <div class="container">
+  <body>
+    <header>
+      <h1>Burger shop</h1>
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Выход</a>
+      {% else %}
+        <a href="{% url 'login' %}">Вход</a> / <a href="{% url 'signup' %}">Регистрация</a>
+      {% endif %}
+      <hr>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+
+  </body>
+      {% block add_script %}{% endblock %}
+  </div>
+
+
+
+</html>
